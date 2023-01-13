@@ -1,0 +1,68 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" *ngFor="let clothing of clothes">
+        <ion-card>
+          <img [alt]="clothing.name" [src]="clothing.image" />
+          <ion-card-header>
+            <ion-card-title>
+              {{ clothing.name }}
+            </ion-card-title>
+            <ion-card-subtitle>
+              <ion-icon name="logo-usd"></ion-icon>
+              {{ clothing.price | currency:'USD' }}
+            </ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-row>
+              <!-- Description -->
+              <ion-col size="12">
+                <ion-label>
+                  <strong>Descripción: </strong>
+                  {{ clothing.description }}
+                </ion-label>
+              </ion-col>
+
+              <!-- Rating -->
+              <ion-col size="12">
+                <ion-label>
+                  <strong>Clasificación: </strong>
+                  {{ clothing.rating }}
+                </ion-label>
+              </ion-col>
+
+              <!-- Sizes -->
+              <ion-col size="12">
+                <ion-label>
+                  <strong>Tallas: </strong>
+                </ion-label>
+
+                <br />
+
+                <ion-badge *ngFor="let size of clothing.sizes" class="ion-margin-right">
+                  <ion-icon name="shirt-outline"></ion-icon>
+                  {{ size }}
+                </ion-badge>
+              </ion-col>
+              
+              <!-- Categories -->
+              <ion-col size="12">
+                <ion-label>
+                  <strong>Categoría: </strong>
+                </ion-label>
+
+                <br />
+
+                <ion-badge>
+                  <ion-icon name="pricetags-outline"></ion-icon>
+                  {{ clothing.category }}
+                </ion-badge>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
